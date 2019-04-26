@@ -117,7 +117,7 @@ function taoBang(danhSachNguoiDung){
     $("#tblDanhSachNguoiDung").html(tblBody);
 }
 function addgit(){
-    
+    console.log("moi tao branch");
 }
     
 })
