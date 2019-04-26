@@ -116,6 +116,8 @@ function taoBang(danhSachNguoiDung){
 
     $("#tblDanhSachNguoiDung").html(tblBody);
 }
-
+function addgit(){
+    
+}
     
 })
