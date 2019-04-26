@@ -59,7 +59,28 @@ function NguoiDungService() {
             }
         })
         return mangTimKiem;
-        
+    }
+    // lay vi tri theo tai khoan
+    this.layViTriNguoiDung = function(taikhoan){
+       // var viTri;
+        var dsnd = JSON.parse(localStorage.getItem("danhsachNguoiDung"));
+        // dsnd.map(function(item , index){
+        //     if(item.TaiKhoan === taikhoan){
+        //         viTri = index;
+        //         return viTri;
+        //     }
+        // });
+        // return viTri;
+        return dsnd.findIndex(function(item){
+            return item.taiKhoan === taikhoan;
+        })
+    }
+
+    this.layThongTinNguoiDung = function(taikhoan) {
+        var dsnd = JSON.parse(localStorage.getItem("danhsachNguoiDung"));
+        return dsnd.find(function(item){
+            return item.TaiKhoan === taikhoan;
+        })
     }
 
     //cap nhat thong tin nguoi dung

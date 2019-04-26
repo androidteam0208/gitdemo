@@ -26,6 +26,26 @@ $(document).ready(function(){ //dam bao html render xong moi
        
        
     } )
+
+    $("body").delegate(".btnSua", "click" , function(){
+        var taikhoan = $(this).data('taikhoan');
+       
+        // var vitri = nguoiDungService.layViTriNguoiDung(taikhoan);
+        // console.log("aaaa" +vitri);
+        // var dsnd = JSON.parse(localStorage.getItem("danhsachNguoiDung"));
+        // console.log(dsnd);
+
+        var nguoiDung = nguoiDungService.layThongTinNguoiDung(taikhoan);
+        console.log(nguoiDung);
+        $("#TaiKhoan").val(taikhoan);
+        $("#HoTen").val(nguoiDung.HoTen);
+        $("#MatKhau").val(nguoiDung.MatKhau);
+        $("#Email").val(nguoiDung.Email);
+        $("#SoDienThoai").val(nguoiDung.SoDT);
+        $("#loaiNguoiDung").val(nguoiDung.loaiNguoiDung);
+        
+    })
+
     $("#txtTimKiem").keyup(function(){
         var taikhoan = $("#txtTimKiem").val();
         var bang = nguoiDungService.timKiemNguoiDung(taikhoan);
