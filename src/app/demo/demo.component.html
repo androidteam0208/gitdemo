@@ -1,9 +1,49 @@
-<div class="bg-dark">
-    <app-demo-header></app-demo-header>
-    <app-demo-banner></app-demo-banner>
-    <app-demo-list-phone></app-demo-list-phone>
-    <app-demo-list-lap></app-demo-list-lap>
-    <app-demo-footer></app-demo-footer>
+<div class="container">
+  <h2 class="text-center">Quản lý danh mục sản phẩm</h2>
+    <div class="form-group">
+      <label for="idSP">Mã sản phẩm : </label>
+      <input type="text" class="form-control" placeholder="Mã sản phẩm" #id >
+    </div>
+    <div class="form-group">
+      <label for="tenSP">Tên sản phẩm : </label>
+      <input type="text" class="form-control" placeholder="Tên sản phẩm" #name>
+    </div>
+    <div class="form-group">
+      <label >Giá : </label>
+      <input type="text" class="form-control" placeholder="Gía" #price>
+    </div>
+    <button class="btn btn-success" (click)= "addProduct( id.value, name.value, price.value)">Thêm sản phẩm</button>
+  <p></p>
+  <table class="table ">
+    <thead [ngClass]="{'threadColor': true}">
+      <tr>
+        <th>Mã sản phẩm</th>
+        <th>Tên sản phẩm</th>
+        <th>Gía</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let item of productArray, let i = index">
+        <ng-container *ngIf = "i%2 === 0 , else rowOdd">
+            <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.price}}</td>
+            </tr>
+        </ng-container>
+        <ng-template #rowOdd>
+            <tr [ngClass]="{'rowColor': true}">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.price}}</td>
+            </tr>
+        </ng-template>
+         
+      </ng-container>
+     
+    </tbody>
+    <ng-template #empty>
+
+    </ng-template>
+  </table>
 </div>
-
-
